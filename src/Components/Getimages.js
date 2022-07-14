@@ -5,7 +5,7 @@ function Getimages(props)
 {
 
 const [query,setquery]=useState("");
-const apiurl=`https://api.unsplash.com/photos/random/?client_id=FAYAZhYR20yDu_LY6IWnnTUK2d2Gx0mFeF41iVoAeXo`;
+const apiurl=`https://api.unsplash.com/photos/random/?count=8&client_id=FAYAZhYR20yDu_LY6IWnnTUK2d2Gx0mFeF41iVoAeXo`;
 //    console.log(url);
 const [Image,setImage]=useState(null);
    
@@ -23,7 +23,7 @@ const [Image,setImage]=useState(null);
 
     setquery(inpub4);
     
-    console.log(query);
+   // console.log(query);
     
      setinput("");
     //  console.log(queery);
@@ -35,8 +35,8 @@ const [Image,setImage]=useState(null);
         console.log("HI ");
         axios.get(`${apiurl}&query=${query}`).then(response=>
             {
-                console.log(query);
-                console.log(response.data.urls.full);
+               // console.log(query);
+                console.log(response.data);
 
                     setImage(response.data);
             })     
@@ -45,14 +45,14 @@ const [Image,setImage]=useState(null);
 
 
 return(
-    <div className='container'>
+    <div className='container '>
     
     
     <form className='form' onSubmit={queryeventhandler}>
     <input className='in' value={inpub4} onChange={inputhandler}></input>
     <button className='button' type='submit'>Submit</button>
     </form>
-    {Image && <img className="imagestyle" src={Image.urls.full}></img>}
+    {Image && Image.map(({id,urls})=>( <img className=" img-responsive   img-thumbnail imagestyle"key={id}src={urls.full}></img>))}
     </div>
     
     

@@ -1,11 +1,12 @@
 .imagestyle
 {
-    height: 45rem;
-    padding-left: 40px;
-    align-items: center;
-    margin: 8rem;
-    width:50rem;
+    height: 22rem;
+   margin-top: 3rem;
+   margin-right: 6rem;
+    float: left;
+    width:25rem;
     border-radius: 3px;
+    /* display: flexbox; */
 }
 
 .form
